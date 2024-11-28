@@ -4,9 +4,13 @@ import axios from 'axios';
 const app = express();
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Ensure this is set in your environment
 
+// Log the API key to check if it's loaded correctly
+console.log('OpenAI API Key:', OPENAI_API_KEY); // Check if the key is loaded correctly
+
 app.use(express.json());
 
-app.post('/', async (req, res) => {
+app.post('/api', async (req, res) => {
+    console.log('Request received:', req.body); // Log incoming requests
     const userMessage = req.body.message;
 
     try {
@@ -24,8 +28,8 @@ app.post('/', async (req, res) => {
         });
 
         res.json({ reply: response.data.choices[0].message.content }); // Adjusted to match the response structure
-    } catch (error) {
-        console.error(error); // Log the error for debugging
+    } catch (error: any) { // Added type assertion
+        console.error('OpenAI Error:', error.response?.data || error.message);// Log the error for debugging
         res.status(500).json({ error: 'Error communicating with OpenAI API' });
     }
 });
