@@ -1,10 +1,12 @@
-const express = require('express');
-const axios = require('axios');
-const router = express.Router();
+import express from 'express';
+import axios from 'axios';
 
+const app = express();
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Ensure this is set in your environment
 
-router.post('/', async (req, res) => {
+app.use(express.json());
+
+app.post('/', async (req, res) => {
     const userMessage = req.body.message;
 
     try {
@@ -28,4 +30,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default app;
