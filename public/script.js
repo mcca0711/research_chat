@@ -46,3 +46,4 @@ async function sendMessage() {
     // Scroll to the bottom of the messages
     document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
 }
+
