@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Erdos Research Chat App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASD Learning Path Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="chat-container">
-        <div id="title">Erdos Research Chat App</div>
-        <div id="messages"></div>
-        <input type="text" id="user-input" placeholder="Type your message...">
-        <button id="send-button">Send</button>
+  <div id="chat-container">
+    <header id="title">
+      <h1>ASD Learning Path Generator</h1>
+      <p>Your personalized learning companion</p>
+    </header>
+
+    <div id="controls-container">
+      <div class="input-block">
+        <label for="asd-select">Select your ASD diagnosis:</label>
+        <select id="asd-select">
+          <option value="">--Choose an option--</option>
+          <option value="autism">Autism</option>
+          <option value="aspergers">Asperger’s</option>
+          <option value="pdd-nos">PDD-NOS</option>
+          <option value="visual learner">Visual Learner</option>
+          <option value="text-based learner">Text-Based Learner</option>
+          <option value="kinesthetic learner">Kinesthetic Learner</option>
+        </select>
+      </div>
+
+      <form id="upload-form" enctype="multipart/form-data" class="input-block">
+        <label for="file-input">Upload a Document:</label>
+        <input type="file" id="file-input" name="file-input" accept=".pdf, .doc, .docx, .txt" />
+        <button type="submit" class="primary-button">Upload</button>
+      </form>
+
+      <button id="generate-learning-path-button" class="primary-button">Generate Learning Path</button>
     </div>
-    <script src="script.js"></script>
+
+    <div id="messages"></div>
+
+    <footer id="input-container">
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button id="send-button" class="primary-button">Send</button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,14 +1,19 @@
-   // path: tsconfig.json
-   {
-    "compilerOptions": {
-      "target": "ES2015", // or "ES6"
-      "module": "CommonJS",
-      "lib": ["ES2015", "DOM"],
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true
+{
+  "compilerOptions": {
+    "target": "ES2017", // Keep as is
+    "module": "CommonJS", // Matches Node.js modules
+    "lib": ["ES2017", "DOM"], // Includes ECMAScript features and browser APIs
+    "strict": true, // Enables all strict type-checking options
+    "esModuleInterop": true, // Ensures compatibility with CommonJS modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Enforces consistent file casing
+    "typeRoots": ["./types", "./node_modules/@types"], // Custom and default types
+    "baseUrl": ".", // Allow for base-relative imports
+    "paths": {
+      "*": ["node_modules/*", "types/*"]
     },
-    "include": ["api/**/*.ts"],
-    "exclude": ["node_modules"]
-  }
+    "outDir": "dist" // Output compiled files to 'dist' folder
+  },
+  "include": ["api/**/*.ts", "types/**/*.d.ts", "public/**/*.js"], // Ensure all necessary files are included
+  "exclude": ["node_modules"] // Exclude external dependencies
+}

@@ -1,28 +1,21 @@
 // server.js
-import serverless from 'serverless-http';
-import app from './api/index.ts'; // Adjust the import path as needed
-
-// Wrap the Express app with serverless-http
-export const handler = serverless(app);
-
 require('dotenv').config();
-console.log("Loaded environment variables:", process.env.OPENAI_API_KEY);
-
 const express = require('express');
 const path = require('path');
-const chatRouter = require('./api').default;
-console.log('Chat router mounted');
+const cors = require('cors');
 
-const serverless = require('serverless-http');
-const cors = require('cors'); // Import the cors package
+// Import your index.ts
+const chatRouter = require('./api/index.ts').default;
 
 const app = express();
-
-app.use(cors()); // Enable CORS for all routes
+app.use(cors());
 app.use(express.json());
+
+// 1) MOUNT /api ROUTES FIRST
+app.use('/api', chatRouter);
+
+// 2) SERVE STATIC FILES AFTER
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/api/', chatRouter);
 
-// Export the app as a serverless function
-module.exports.handler = serverless(app);
-
+// IMPORTANT: Export the app directly (no serverless-http)
+module.exports = app;
