@@ -4,40 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ASD Learning Path Generator</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="chat-container">
+    <!-- Title Section -->
     <header id="title">
       <h1>ASD Learning Path Generator</h1>
       <p>Your personalized learning companion</p>
     </header>
 
+    <!-- Controls Section -->
     <div id="controls-container">
       <div class="input-block">
-        <label for="asd-select">Select your ASD diagnosis:</label>
-        <select id="asd-select">
-          <option value="">--Choose an option--</option>
-          <option value="autism">Autism</option>
-          <option value="aspergers">Asperger’s</option>
-          <option value="pdd-nos">PDD-NOS</option>
-          <option value="visual learner">Visual Learner</option>
-          <option value="text-based learner">Text-Based Learner</option>
-          <option value="kinesthetic learner">Kinesthetic Learner</option>
+        <label for="profile-select">Select a Learner Profile:</label>
+        <select id="profile-select">
+          <option value="">--Choose a Profile--</option>
+          <option value="john">John</option>
+          <option value="emma">Emma</option>
+          <option value="liam">Liam</option>
+          <option value="sophie">Sophie</option>
+          <option value="alex">Alex</option>
         </select>
       </div>
 
-      <form id="upload-form" enctype="multipart/form-data" class="input-block">
-        <label for="file-input">Upload a Document:</label>
-        <input type="file" id="file-input" name="file-input" accept=".pdf, .doc, .docx, .txt" />
-        <button type="submit" class="primary-button">Upload</button>
-      </form>
+      <!-- Profile Details Section -->
+      <div id="profile-details">
+        <!-- Profile details will be dynamically populated here -->
+        <em>Select a profile to see details.</em>
+      </div>
+
+      <!-- Content Selection Section -->
+      <div id="content-selection">
+        <strong>Selected Content:</strong>
+        <p>"Moby Dick" by Herman Melville</p>
+      </div>
 
       <button id="generate-learning-path-button" class="primary-button">Generate Learning Path</button>
     </div>
 
+    <!-- Messages Section -->
     <div id="messages"></div>
 
+    <!-- Input Section -->
     <footer id="input-container">
       <input type="text" id="user-input" placeholder="Type your message..." />
       <button id="send-button" class="primary-button">Send</button>
