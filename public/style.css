@@ -116,6 +116,33 @@ button.primary-button:hover {
   background-color: #fff;
 }
 
+/* Individual Message Styles */
+.message {
+  margin-bottom: 15px; /* Add space between messages */
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.5; /* Improve readability */
+}
+
+.user-message {
+  background-color: #dcf8c6; /* Light green for user messages */
+  align-self: flex-end;
+  text-align: right;
+}
+
+.bot-message {
+  background-color: #f1f1f1; /* Light gray for bot messages */
+  align-self: flex-start;
+  text-align: left;
+}
+
+.bot-message.error {
+  background-color: #f8d7da; /* Light red for error messages */
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
 /* Input Container */
 #input-container {
   display: flex;
